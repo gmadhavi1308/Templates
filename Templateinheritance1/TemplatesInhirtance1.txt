@@ -1,0 +1,51 @@
+--->views.py templatesInhirtance1
+
+from django.shortcuts import render
+import datetime
+# Create your views here.
+def index(request):
+    return render(request,'home.html')
+
+def examples(request):
+    return render(request,'examples.html')
+
+def projects(request):
+    d=datetime.datetime(2022,11,1)
+    info={'fname':'teja','lname':'Reddy','sub':562,'lab':266,'Section':'',
+    'project_tittle':'Student INFORMATION System','sub_date':d,'email':'tejareddy@gmail.com'}
+    lis=['Languages',['C','C++','python'],'package',['Ms Office','Tally']]
+    data=[{'name':'sam','age':20},{'name':'Raj'}]
+    marks=[78,23,72,30,66,39]
+    return render(request,'projects.html',{'info':info,'lis':lis,'data':data,'marks':marks})
+
+def documents(request):
+    return render(request,'document.html')
+
+def contact(request):
+    return render(request,'contact.html')
+
+---> urls.py TEmplatesInhirtance1
+from MyApps.views import *
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('',index,name='home'),
+    path('example',examples,name='example'),
+    path('Project',projects,name='project'),
+    path('document',documents,name='document'),
+    path('contact',contact,name='contact'),
+]
+
+--->TEmplates
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'APP_DIRS': True,
+
+--->STATIC
+STATIC_DIR=os.path.join(BASE_DIR,'static')
+STATIC_URL = 'static/'
+STATICFILES_DIRS=[
+STATIC_DIR,
+]# Default primary k
