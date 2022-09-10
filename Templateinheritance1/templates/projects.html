@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block t %} Project {% endblock %}
+{% block sidebar %}
+    This is project page sidebar
+
+{% endblock %}
+
+{% block content %}
+{% load User_Filters %}
+    <pre>
+
+      Books project
+
+      School Project
+
+      College project
+
+    </pre>
+    Student Name : {{info.fname|upper|add:info.lname}}<br>
+    Length of student name : {{info.fname|add:info.lname|length}}<br>
+    Subjects Total : {{info.sub}} <br>
+    Labs Total : {{info.labs}}<br>
+    Grand Total : {{info.sub|add:info}}<br>
+    Section : {{info.section|default:'Null'}}
+    Project Title : {{info.project_title|title}}<br>
+    Submission Date : {{info.sub_date|date:"d-M-Y"}}<br>
+    Courses : {{lis|unordered_list}}<br>
+    Data : {{data|dictsort:'name'}}<br>
+
+    Project Title : {{info.project_title|f3upper}}<br>
+    Marks : {{marks}}<br>
+    Total : {{marks|tot}}<br>
+    Passed : {{marks|pass}}<br>
+    Passed : {{marks|passed:40}}<br>
+    Failed : {{marks|failed}}<br>
+    Failed : {{marks|failed:40}}<br>
+    Email Id : {{info.email}}<br>
+    User Name : {{info.email|uid}}<br>
+    Domain : {{info.email|domain}}<br>
+{% endblock %}

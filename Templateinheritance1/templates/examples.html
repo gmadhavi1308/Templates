@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block t %} Examples {% endblock %}
+{% block sidebar %}
+    This is Examples page sidebar
+{% endblock %}
+
+{% block content %}
+    <pre>
+  book = {'bid':1001,'bname':'python','bauthor':'Rossum','bprice':500.56}
+  print("\n**BOOK DETAILS** :",book)
+  #items()
+  print("\n----BOOK DETAILS----")
+  for k,v in book.items():
+      print("{} : {}".format(k,v))
+  #keys()
+  print("\n----BOOK DETAILS----")
+  for k in book.keys():
+      print("{} : {}".format(k,book[k]))
+  #values()
+  print("\n----BOOK DETAILS----")
+  for v in book.values():
+      print(v)
+</pre>
+{% endblock %}
